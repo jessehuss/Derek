@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="form-group">
+    <div class="text-center">
+      <h1>DEREK WIRELESS MONITORING NETWORK</h1>
+    </div>
+  </div>
+  <div *ngFor="let sd of data" class="form-group">
+    <div class="form-row">
+      <div class="col-4"></div>
+      <div class="col-2"><h5>Node ID:</h5></div>
+      <div class="col-2"><h5>{{ sd.NodeID }}</h5></div>
+    </div>
+    <div class="form-row">
+      <div class="col-4"></div>
+      <div class="col-2"><h5>Node Location:</h5></div>
+      <div class="col-2"><h5>{{ sd.NodeLocation }}</h5></div>
+    </div>
+    <div class="form-row">
+      <div class="col-4"></div>
+      <div class="col-2"><h5>Node Status:</h5></div>
+      <div class="col-2"><h5 [ngStyle]="{'color': sd.NodeStatus === _status.Secured ? 
+        'green' : (sd.NodeStatus === _status.Unsecured ? 
+        'red' : '#d39e00') }" >{{ _status[sd.NodeStatus] }}</h5></div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
